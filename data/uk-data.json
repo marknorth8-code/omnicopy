@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Former night club, centrally located within Loughborough town centre",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-01.webp",
+
+    "price": 800000,
+    "size": 850,
+    "location": "UK",
+    "subLocation": "Loughborough",
+    "status": "For Sale",
+
+    "link": "articles/uk-insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Spacious four-bedroom detached home in the sought-after Little Bowden area.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-02.webp",
+
+    "price": 525000,
+    "size": 172,
+    "location": "UK",
+    "subLocation": "Market Harborough",
+    "status": "Under Offer",
+
+    "link": "articles/uk-insight-002.html"
+  },
+
+  {
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Contemporary two-bedroom apartment in central Market Harborough with strong rental demand.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-03.webp",
+
+    "price": 295000,
+    "size": 91,
+    "location": "UK",
+    "subLocation": "Market Harborough",
+    "status": "Sold",
+
+    "link": "articles/uk-insight-003.html"
+  },
+
+    {
+    "title": "Current opportunities, Midlands, UK",
+    "summary": "Contemporary two-bedroom apartment in central Market Harborough with strong rental demand.",
+    "date": "25 February 2026",
+    "image": "images/locations/uk/uk-04.webp",
+
+    "price": 295000,
+    "size": 91,
+    "location": "UK",
+    "subLocation": "Market Harborough",
+    "status": "Sold",
+
+    "link": "articles/uk-insight-003.html"
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Premium Development Site, Auckland Central",
+    "summary": "Strategically positioned mixed-use development opportunity within close proximity to transport links and commercial amenities.",
+    "date": "25 February 2026",
+    "image": "images/locations/nz/nz-01.webp",
+
+    "price": 3250000,
+    "size": 780,
+    "location": "New Zealand",
+    "subLocation": "Auckland",
+    "status": "For Sale",
+
+    "link": "articles/nz-insight-001.html"
+  },
+
+  {
+    "title": "Residential Subdivision Opportunity, East Auckland",
+    "summary": "Consented residential subdivision site in a high-demand growth corridor with strong end-buyer fundamentals.",
+    "date": "25 February 2026",
+    "image": "images/locations/nz/nz-02.webp",
+
+    "price": 2150000,
+    "size": 1250,
+    "location": "New Zealand",
+    "subLocation": "Auckland",
+    "status": "Under Offer",
+
+    "link": "articles/nz-insight-002.html"
+  },
+
+  {
+    "title": "Boutique Terrace Development Site, North Shore",
+    "summary": "Well-located infill development parcel suitable for premium terrace housing, benefiting from strong school zoning and infrastructure.",
+    "date": "25 February 2026",
+    "image": "images/locations/nz/nz-03.webp",
+
+    "price": 1780000,
+    "size": 640,
+    "location": "New Zealand",
+    "subLocation": "Auckland",
+    "status": "For Sale",
+
+    "link": "articles/nz-insight-003.html"
+  },
+
+    {
+    "title": "Boutique Terrace Development Site, North Shore",
+    "summary": "Well-located infill development parcel suitable for premium terrace housing, benefiting from strong school zoning and infrastructure.",
+    "date": "25 February 2026",
+    "image": "images/locations/nz/nz-04.webp",
+
+    "price": 1780000,
+    "size": 640,
+    "location": "New Zealand",
+    "subLocation": "Auckland",
+    "status": "For Sale",
+
+    "link": "articles/nz-insight-003.html"
+  }
+]

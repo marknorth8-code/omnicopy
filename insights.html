@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insights | Katakano & Partners</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Global property development, market insights, research and investment commentary across Brazil, Japan, New Zealand and the UK.">
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://marknorth8-code.github.io/Global-Reach/">
+
+  <!-- GLOBAL + PAGE CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/insights.css">
+  
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- HEADER / FOOTER INCLUDE -->
+  <script src="js/include.js" defer></script>
+
+  <!-- INSIGHTS DATA LOAD -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('./insights/JS/insights-data.json')
+        .then(res => res.json())
+        .then(data => {
+          const grid = document.getElementById("insightsGrid");
+
+          data.forEach(item => {
+            const article = document.createElement("article");
+            article.className = "insight-card";
+
+            const correctedLink = `insights/${item.link}`;
+            const correctedImage = `insights/${item.image}`;
+
+            article.innerHTML = `
+              <a href="${correctedLink}" class="insight-card-link">
+                <img src="${correctedImage}" alt="${item.title}" loading="lazy">
+                <div class="insight-content">
+                  <h3>${item.title}</h3>
+                  <p>${item.summary}</p>
+                  <span class="insight-date">${item.date}</span>
+                  <span class="read-more">Read more</span>
+                </div>
+              </a>
+            `;
+
+            grid.appendChild(article);
+          });
+        })
+        .catch(err => console.error("Failed to load Insights JSON:", err));
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="header"></div>
+
+  <!-- Removed .insights-page class to allow global body padding to work -->
+  <main id="main-content">
+
+     <!-- Added .page-section for the 60px gap -->
+    <section class="insights-grid-section page-section">
+      <!-- Added .container to align with the site's 1200px grid -->
+      <div class="container insights-grid" id="insightsGrid">
+        <!-- Insight cards injected via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="insights/JS/main.js" defer></script>
+  
+</body>
+</html>

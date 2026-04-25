@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Article | Barkertons Property</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 120px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+h1 {
+  font-family: 'Inknut Antiqua', serif;
+  margin-bottom: 10px;
+  line-height: 1.1;   /* reduced line spacing for multi-line titles */
+}
+
+    .article-meta {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .article-image {
+      margin: 40px 0 10px;
+    }
+
+    .article-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .article-caption {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+#article-summary {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-weight: 900;       /* extra bold */
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1 id="article-title"></h1>
+  <div class="article-meta" id="article-date"></div>
+
+  <!-- IMAGE -->
+  <div class="article-image">
+    <img id="article-image" alt="">
+  </div>
+  <div class="article-caption" id="article-caption"></div>
+
+  <!-- SUMMARY FROM JSON -->
+  <p id="article-summary"></p>
+
+  <!-- ARTICLE BODY (STATIC CONTENT) -->
+  <p>
+ The proposed Salvador–Itaparica bridge represents one of the most significant pieces of infrastructure ever planned for Bahia, Brazil. If delivered, it would create a permanent road connection between Salvador and Itaparica Island, fundamentally changing how people, businesses and capital move around the Bay of All Saints. While the bridge is still in the planning and approvals phase and is not guaranteed, its potential impact on land use and property markets is already a subject of growing interest.
+</p>
+    
+  <p>
+Large infrastructure projects rarely just improve journeys — they reshape cities. A useful comparison is Auckland’s Harbour Bridge. Before it was built, Auckland was effectively constrained to the southern side of the harbour. The North Shore existed, but it was largely peripheral: semi-rural, lightly populated, and not considered core to the city’s growth story. The bridge changed that almost overnight.
+</p> 
+  
+<p>
+Once a fixed crossing was in place, Auckland began to expand northwards. What followed was decades of residential subdivision, new town centres, retail hubs, employment zones and supporting infrastructure. Suburbs that were once considered distant became commuter-friendly. Land that had been low value by urban standards was rapidly absorbed into the city’s growth trajectory. Property values on the North Shore rose sharply as accessibility improved and demand followed, a pattern that continued as the area matured into one of Auckland’s most desirable residential markets.
+</p>
+  
+<p>
+Crucially, the bridge didn’t just redistribute growth — it unlocked it. Auckland became a more balanced, more expansive city, and property markets responded accordingly. Developers, investors and owner-occupiers all benefited from the certainty and permanence that a fixed crossing provides.
+</p>
+  
+<p>
+The proposed Salvador–Itaparica bridge has the potential to trigger a similar shift. Itaparica today remains relatively underdeveloped compared to Salvador, with large tracts of land, lower density, and values that reflect its island geography and limited access. A permanent crossing would significantly reduce perceived distance, making daily commuting, logistics and tourism far more viable. History suggests that when accessibility improves, land values tend to follow.
+</p>
+  
+<p>
+If the bridge proceeds, Itaparica could evolve from a peripheral location into a natural extension of the Salvador metropolitan area. This would likely stimulate residential development, hospitality projects, mixed-use schemes and supporting commercial activity, particularly along key access corridors. As seen in Auckland, early stages of this transition often offer the strongest uplift in land and property values.
+  </p>
+
+  <p>
+  Of course, the Salvador–Itaparica bridge remains a proposal, and modern projects must navigate environmental and social considerations that were less prominent in the past. But Auckland’s experience demonstrates how transformative a single piece of infrastructure can be. If built, the bridge could mark a defining moment for Salvador’s future growth — and for the long-term property prospects of Itaparica.
+</p>
+    
+  <!-- LOAD ARTICLE DATA -->
+ <script>
+  const slug = window.location.pathname
+    .split('/')
+    .pop()
+    .replace('.html', '');
+
+  fetch('../JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
+
+   const article = data.find(item =>
+  item.link.includes(slug)
+);
+
+      if (!article) {
+        console.error('Article not found:', slug);
+        return;
+      }
+
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-summary').textContent = article.summary;
+      document.getElementById('article-caption').textContent = article.caption || '';
+
+      const img = document.getElementById('article-image');
+      img.src = '../' + article.image;   // 👈 key fix
+      img.alt = article.title;
+    })
+    .catch(err => console.error('Article load error:', err));
+</script>
+
+
+</body>
+</html>

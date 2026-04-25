@@ -1,0 +1,34 @@
+[
+  {
+    "title": "A UK / NZ Property Market Comparison",
+    "summary": "After 10 years working in NZ, these are my reflections on how the UK property market differs from NZ",
+    "date": "22 July 2025",
+    "image": "images/insight-001.webp",
+    "caption": "Milford Sound in South Island",
+    "link": "articles/insight-001.html"
+  },
+  {
+    "title": "Why a Good Corporate Property Strategy Really Matters: A Case Study",
+    "summary": "This property strategy of an NZ Steel business is text book for how the property team can (and should) materially affect business performance",
+    "date": "14 October 2025",
+    "image": "images/insight-002.webp",
+    "caption": "Fletcher Steel's purpose built 10,000sqm facility in Christchurch, NZ",
+    "link": "articles/insight-002.html"
+  },
+  {
+    "title": "Lessons from Auckland, Prospects for Itaparica",
+    "summary": "If realised, the Salvador–Itaparica bridge could echo Auckland’s Harbour Bridge in connectivity gains and investment opportunity",
+    "date": "29 December 2025",
+    "image": "images/insight-003.webp",
+    "caption": "Artist impression of the planned Salvador-Itaparica crossing",
+    "link": "articles/insight-003.html"
+  },
+  {
+    "title": "Taking the Ray Dalio Diversification Approach to Property Investing",
+    "summary": "Local economic shocks can damage property values for decades, even in places with strong fundamentals",
+    "date": "31 January 2026",
+    "image": "images/insight-004.webp",
+    "caption": "Diversification is best",
+    "link": "articles/insight-004.html"
+  }
+]

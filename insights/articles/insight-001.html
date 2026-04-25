@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Article | Barkertons Property</title>
+
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 120px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Inknut Antiqua', serif;
+      margin-bottom: 10px;
+      line-height: 1.1;   /* reduced line spacing for multi-line titles */
+    }
+
+    .article-meta {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .article-image {
+      margin: 40px 0 10px;
+    }
+
+    .article-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .article-caption {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #article-summary {
+      font-family: 'Bricolage Grotesque', Arial, sans-serif;
+      font-weight: 900;       /* extra bold */
+      font-size: 18px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1 id="article-title"></h1>
+  <div class="article-meta" id="article-date"></div>
+
+  <!-- IMAGE -->
+  <div class="article-image">
+    <img id="article-image" alt="">
+  </div>
+  <div class="article-caption" id="article-caption"></div>
+
+  <!-- SUMMARY FROM JSON -->
+  <p id="article-summary"></p>
+
+  <!-- ARTICLE BODY (STATIC CONTENT) -->
+  <p>
+    As a UK chartered surveyor, observing the commercial property sector in New Zealand reveals some notable contrasts to the UK. While both markets share similarities in terms of professional standards, valuation methods, and lease structures, the scale, regulatory environment, and investor dynamics differ significantly.
+  </p>
+    
+  <p>
+    One of the most striking differences is market size and liquidity. New Zealand’s commercial property market is relatively small, with major activity concentrated in Auckland, Wellington, and Christchurch. Auckland dominates with approximately one third of the country’s population but not in the way London dominates the UK. Where London dominates and offers deep institutional investment opportunities, New Zealand’s market is driven by a mix of local institutional investors, private investors, and owner-occupiers. This smaller market can lead to less frequent transactional activity and, occasionally, sharper price movements due to limited supply.
+  </p> 
+  
+  <p>
+    Regulation and planning also differ. The Resource Management Act (RMA) and local council planning frameworks play a pivotal role in New Zealand, impacting development timelines and zoning significantly. In contrast, the UK benefits from a more established, albeit complex, planning system where permitted development rights and planning precedents often provide greater predictability. Lease structures in New Zealand commonly adopt full repairing and insuring (FRI) leases, similar to the UK, but market practice often sees shorter lease terms and more flexible arrangements, reflecting the smaller tenant pool.
+  </p>
+  
+  <p>
+    Financing conditions present another distinction. New Zealand commercial property finance tends to be more conservative, with higher equity requirements and a stronger emphasis on local bank lending. In the UK, there is a broader spectrum of institutional finance options, securitised lending, and foreign capital participation, which can affect transaction volumes and yield compression differently.
+  </p>
+  
+  <p>
+    Yield expectations and capital values also vary. New Zealand prime yields have historically been higher than those in major UK cities, reflecting lower market depth and perceived liquidity risk. Conversely, tenant incentives, rent reviews, and property management approaches are often more pragmatic and tenant-focused in New Zealand, reflecting a market where long-term relationships are key. Sustainability and earthquake resilience are major considerations in New Zealand. The need for buildings to meet seismic standards, particularly post-Christchurch earthquakes, has become a dominant factor in investment and valuation—an aspect less prominent in the UK, though ESG considerations are gaining traction there – and also an opportunity for outsized returns relative to costs incurred. 
+  </p>
+  
+  <p>
+    For me, being based in Auckland and managing properties in the South Island, with particular focus on Christchurch and the post earthquake rebuild was somewhat of a dream job. The key takeaways being the amazing beauty of some of the landscapes but also the ‘two-degrees’ of separation (everyone knows everyone, especially in property) and how this affects conduct of business relative to London’s anonymity.  
+  </p>
+
+  <!-- LOAD ARTICLE DATA -->
+  <script>
+    // 1. Get the current filename (e.g., insight-001.html)
+    const slug = window.location.pathname.split('/').pop();
+
+    // 2. Fetch from JS folder (Step up one level from articles/ to reach insights/)
+    fetch('../JS/insights-data.json')
+      .then(res => res.json())
+      .then(data => {
+
+        // 3. Find article where the link contains our filename
+        const article = data.find(item => item.link.includes(slug));
+
+        if (!article) {
+          console.error('Article not found in JSON:', slug);
+          return;
+        }
+
+        // 4. Populate Text content
+        document.getElementById('article-title').textContent = article.title;
+        document.getElementById('article-date').textContent = article.date;
+        document.getElementById('article-summary').textContent = article.summary;
+        document.getElementById('article-caption').textContent = article.caption || '';
+
+        // 5. Populate Image (Step up one level from articles/ to reach images/)
+        const img = document.getElementById('article-image');
+        img.src = '../' + article.image; 
+        img.alt = article.title;
+      })
+      .catch(err => console.error('Article load error:', err));
+  </script>
+
+</body>
+</html>

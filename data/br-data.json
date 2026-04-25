@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "Prime development land positioned to benefit from the Salvador–Itaparica Bridge project.",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-01.webp",
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
+    "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "Residential development plot in a high-growth corridor.",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-02.webp",
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
+    "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "Strategic land holding suitable for mixed-use development.",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-03.webp",
+
+    "price": 250000,
+    "size": 1200,
+    "location": "Brazil",
+    "subLocation": "Itaparica",
+    "status": "For Sale",
+
+    "link": "articles/insight-001.html"
+  },
+
+  {
+    "title": "Current opportunities, Bahia, Brazil",
+    "summary": "Prime development land positioned to benefit from the Salvador–Itaparica Bridge project.",
+    "date": "22 February 2026",
+    "image": "images/locations/br/brazil-04.webp",
+
+    "price": 280000,
+    "size": 1500,
+    "location": "Brazil",
+    "subLocation": "Salvador",
+    "status": "For Sale",
+
+    "link": "articles/insight-004.html"
+  }
+  
+]

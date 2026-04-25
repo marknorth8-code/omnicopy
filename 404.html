@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Katakano</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+    }
+    .error-code {
+      font-size: 8rem;
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: #eee;
+    }
+    .error-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 12px 30px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .error-btn:hover {
+      background: #333;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Re-use your site header for navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="site-logo-container">
+            <span style="font-family: Georgia, serif; font-size: 1.5rem;">Katakano</span>
+        </a>
+    </div>
+  </header>
+
+  <main class="container error-container">
+    <div class="error-code">404</div>
+    <h1>Lost at sea?</h1>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    
+    <div class="error-actions">
+      <a href="index.html" class="error-btn">Return to Homepage</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center">
+      <p>&copy; 2024 Katakano</p>
+    </div>
+  </footer>
+
+</body>
+</html>

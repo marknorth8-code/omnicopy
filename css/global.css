@@ -1,0 +1,613 @@
+/* =========================================================
+   1. GLOBAL RESET & BASE
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #000;
+  background: #fff;
+    padding-top: 90px;
+    transition: padding 0.3s ease;
+}
+
+
+@media (max-width: 900px) {
+  body { padding-top: 65px; }
+  html { scroll-padding-top: 100px; }
+}
+
+/* =========================================================
+   2. TYPOGRAPHY & LINKS
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p { max-width: 70ch; margin-bottom: 1rem; }
+
+a { color: inherit; text-decoration: none; transition: 0.2s; }
+a:hover { text-decoration: underline; }
+
+.hero-text {
+  border-left: 3px solid #000033;
+  padding-left: 28px;
+}
+
+/* =========================================================
+   3. MASTER LAYOUT SYSTEM
+   ========================================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-section {
+  padding: 60px 0;
+  clear: both;
+}
+
+.flex-row {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.media-side {
+  flex: 0 0 60%;
+  max-width: 60%;
+  position: relative;
+}
+
+.media-side img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+.intro-image,
+.about-hero-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   4. SHARED COMPONENTS
+   ========================================================= */
+.location-label {
+  line-height: 1.4;
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+
+.sub-label {
+  font-size: 14px;
+  color: #666;
+  display: block;
+}
+
+.story-btn {
+  display: inline-block;
+  background: #000033;
+  color: #fff;
+  padding: 15px 40px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.story-btn:hover {
+  background: #E10600;
+  text-decoration: none;
+}
+
+/* =========================================================
+   5. HEADER & NAVIGATION
+   ========================================================= */
+
+.site-header {
+  position: fixed; /* Changed from sticky to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 2px solid #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px; /* Desktop default */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  transition: height 0.3s ease;
+}
+
+.nav-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primary-nav {
+  flex: 0 0 60%;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-link {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link:hover,
+.nav-button:hover,
+.nav-link.active {
+  color: #BBB;
+}
+
+.nav-link.active::after,
+.nav-link[aria-current="page"]::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #BBB;
+  margin-top: 4px;
+}
+
+/* Dropdown */
+.locations-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  min-width: 250px;
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  display: none;
+  list-style: none;
+  z-index: 1001;
+  margin-top: 0px;
+}
+
+.has-dropdown {
+  position: relative;
+  padding-bottom: 5px; /* creates hover buffer */
+}
+
+.has-dropdown:hover .locations-dropdown {
+  display: block;
+}
+
+.locations-dropdown li a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Desktop shrink behaviour */
+.site-header.is-shrunk .header-inner {
+  height: 60px;
+}
+
+.site-logo {
+  max-height: 60px;
+  width: auto;
+  transition: max-height 0.3s ease;
+}
+
+.site-header.is-shrunk .site-logo {
+  max-height: 40px;
+}
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
+
+.nav-toggle,
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  /* 1. Adjust Body Padding for the smaller mobile header */
+  body { 
+    padding-top: 65px; 
+  }
+
+  /* 2. Hide desktop nav */
+  .primary-nav {
+    display: none;
+  }
+
+  /* 3. Header sizing */
+  .header-inner,
+  .site-header.is-shrunk .header-inner {
+    height: 65px;
+    padding: 0 16px;
+  }
+
+  /* 4. Logo & Toggle */
+  .site-logo {
+    max-height: 40px;
+    max-width: 70%;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+
+
+/* =========================================================
+   6. CAROUSEL ENGINE (Desktop unchanged)
+   ========================================================= */
+.carousel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-out;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.carousel-arrows {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.carousel-arrow {
+  pointer-events: all;
+  background: #fff;
+  border: 1px solid #eee;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel-arrow svg {
+  transform: scale(1.4);
+}
+
+.carousel-arrow {
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: #BBB;   /* your brand navy */
+  border-color: #BBB;
+}
+
+.offices-carousel { padding-bottom: 10px; }
+.media-side.about-work-media .carousel { padding-bottom: 10px; }
+
+
+@media (max-width: 900px) {
+  .carousel-arrows { display: none; }
+}
+
+/* =========================================================
+   7. MOBILE FIXES (Clean + Stable)
+   ========================================================= */
+@media (max-width: 900px) {
+
+  /* Stack layout */
+  .flex-row {
+    display: block;
+  }
+
+  /* Keep standard mobile gutter */
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Reset media width */
+  .media-side {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Full-width images only */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image img,
+  .media-side img {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  /* Text padding */
+  .intro-text,
+  .about-hero-text,
+  .partnership-text,
+  .offices-text,
+  .about-work-text {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 30px;
+  }
+
+  /* Carousel mobile behaviour */
+  .carousel-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .carousel-arrows {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.footer-divider-black {
+  border: 0;
+  border-top: 1px solid #000;
+  width: 100%;
+  margin: 0;
+}
+
+.site-footer {
+  padding: 40px 0;
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.footer-right { text-align: right; }
+
+.footer-right a {
+  display: block;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; gap: 20px; }
+  .footer-right { text-align: left; }
+}
+
+/* =========================================================
+   CLEAN MOBILE FULL-WIDTH REPAIR (FINAL CONSOLIDATED)
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* 1. Reset Container Padding for Sections with Full-Width Media */
+  .intro-images .container,
+  .about-hero .container,
+  .partnership .container,
+  .offices .container,
+  .about-work .container,
+  .services .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* 2. Re-apply Padding ONLY to the text blocks */
+  .intro-text,
+  .about-hero-text,
+  .partnership-text,
+  .offices-text,
+  .about-work-text,
+  .services .intro-text {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* 3. Force Section 1 & Partnership to Stack */
+  .flex-row {
+    display: block !important;
+  }
+
+  /* 4. Fix Section 1 & Static Images */
+  .intro-image,
+  .about-hero-image,
+  .partnership-image img {
+    width: 100% !important;
+    height: 320px !important; 
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+  }
+
+  /* 5. Fix Service Carousel */
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 175px) !important;
+    justify-content: flex-start !important; 
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 24px !important; 
+    padding-right: 24px !important; 
+    gap: 20px !important;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* 6. Fix JS Carousels (Offices & Work) */
+  .carousel-viewport {
+    border-radius: 0 !important;
+    width: 100% !important;
+  }
+
+  .carousel-slide img {
+    height: 320px !important; 
+    object-fit: cover !important;
+    border-radius: 0 !important;
+  }
+
+  /* 7. UI Alignment for Labels & Captions */
+  .permanent-label, 
+  .location-label {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    display: block;
+  }
+  
+  .image-caption {
+    right: 24px !important;
+  }
+
+/* =========================================================
+   8. MOBILE NAV: HIERARCHY & TOGGLE REPAIR
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* 1. The Mobile Menu - Let the JS control 'display' */
+  .mobile-nav {
+    background: #fff;
+    width: 100%;
+    border-bottom: 2px solid #000;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    z-index: 1000;
+    /* Remove any hardcoded display: block here so JS can use 'flex' or 'none' */
+  }
+
+  /* 2. Base Alignment (Aligns with Logo at 24px) */
+  .mobile-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav ul li {
+    width: 100%;
+  }
+
+  .mobile-nav ul li a {
+    display: block !important;
+    padding: 18px 24px !important; /* 24px Base Indent */
+    font-size: 16px !important;
+    color: #000 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+    text-decoration: none !important;
+  }
+
+  /* 3. Indent the 4 Country Locations (48px) */
+  /* Targets the first 4 <li> items in your mobile-nav <ul> */
+  .mobile-nav ul li:nth-child(-n+4) a {
+    padding-left: 48px !important; 
+    background-color: #fafafa !important;
+    color: #666 !important;
+  }
+
+  /* 4. Visual Header for Locations */
+  .mobile-nav ul li:first-child::before {
+    content: "Our Locations";
+    display: block;
+    padding: 20px 24px 5px 24px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 1px;
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Article | Barkertons Property</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 120px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+ h1 {
+  font-family: 'Inknut Antiqua', serif;
+  margin-bottom: 10px;
+  line-height: 1.1;   /* reduced line spacing for multi-line titles */
+}
+
+    .article-meta {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .article-image {
+      margin: 40px 0 10px;
+    }
+
+    .article-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .article-caption {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+ #article-summary {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-weight: 900;       /* extra bold */
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1 id="article-title"></h1>
+  <div class="article-meta" id="article-date"></div>
+
+  <!-- IMAGE -->
+  <div class="article-image">
+    <img id="article-image" alt="">
+  </div>
+  <div class="article-caption" id="article-caption"></div>
+
+  <!-- SUMMARY FROM JSON -->
+  <p id="article-summary"></p>
+
+  <!-- ARTICLE BODY (STATIC CONTENT) -->
+  <p>
+   Sometimes, the best business turnarounds start in unexpected places. In this case, it started with property. A struggling steel company—one that, to be frank, was underperforming across the board—used a bold property strategy as the engine to pull the rest of the business back on track. And honestly, it’s a perfect example of why the head of property deserves a seat at the top table alongside the rest of the C-suite. Too often, they’re overlooked—but in situations like this, they are central to driving real change.
+</p>
+    
+  <p>
+The financials at the time weren’t great. Key performance indicators painted a picture of inefficiency everywhere: clunky manufacturing processes, suboptimal transport routes, low staff morale, poor health and safety… basically, you get the idea. The business strategy had evolved over time, but the real turning point began with the relocation of one of the company’s major manufacturing and distribution units—a move forced more than chosen. The company operated across six or seven key sites nationwide, with overseas deliveries routed through Tauranga, a central hub in Auckland, and other large sites in major cities across New Zealand.
+</p> 
+  
+<p>
+Relocating a 10,000sqm facility is no small feat. It’s expensive, disruptive, and normally avoided if at all possible. In this case, a combination of the Christchurch earthquake and other pressures made it unavoidable. Once the move was complete, though, the benefits were almost immediate. From a property perspective, the new facility was a game-changer. Surprisingly, the rent wasn’t drastically higher. By committing to an 18-year lease—well beyond market norms—the company kept costs reasonable while unlocking a brand-new, purpose-built space designed specifically for their needs.
+</p>
+  
+<p>
+And the benefits didn’t stop at property. The new building brought:
+•	Clean, updated facilities – boosting staff engagement
+•	Properly designed space and updated machinery – improving health and safety
+•	Streamlined processes – driving operational efficiency
+•	Relocation costs mostly covered by incentives
+•	Tax-efficient financing of new cranes via the lease
+•	Environmental improvements – goodbye, asbestos
+•	Better traffic management – smoother logistics
+
+</p>
+  
+<p>
+The success of this first relocation became the proof point to convince the Board to roll out four more site relocations, using a “hub-and-spoke” model with property strategy at the centre. Once the network was complete, additional efficiencies emerged: trucks could carry goods both ways, reducing empty runs, and extra manufacturing capacity at new sites allowed the business to operate more flexibly.
+</p>
+  
+<p>
+This story perfectly illustrates that property isn’t just a cost line—it can be the catalyst for business transformation. When done strategically, it unlocks operational, financial, and cultural benefits that ripple across the entire company.
+Getting the property part of the deal right is crucial. It highlights the value of a close working relationship and the importance of the property team fully understanding the business. As for the key lease terms, they go without saying: they must stack, be market-aligned, and, above all, meet the specific needs of the business.
+</p>
+  
+<p>
+This case really shows why property should sit at the heart of business strategy. By taking a bold, well-planned approach to relocating just one key facility, the company unlocked immediate operational, financial, and cultural benefits—cleaner, safer, more efficient spaces, better staff engagement, smarter logistics, and even tax-efficient equipment funding. That first move became the blueprint for rolling out a wider network, proving that when the property team truly understands the business and negotiates the right lease terms, property isn’t just a cost—it’s a strategic lever for growth. It’s a perfect reminder that the head of property deserves a seat at the top table alongside the rest of the C-suite.
+</p>
+
+  <!-- LOAD ARTICLE DATA -->
+ <script>
+  const slug = window.location.pathname
+    .split('/')
+    .pop()
+    .replace('.html', '');
+
+  fetch('../JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
+
+   const article = data.find(item =>
+  item.link.includes(slug)
+);
+
+      if (!article) {
+        console.error('Article not found:', slug);
+        return;
+      }
+
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-summary').textContent = article.summary;
+      document.getElementById('article-caption').textContent = article.caption || '';
+
+      const img = document.getElementById('article-image');
+      img.src = '../' + article.image;   // 👈 key fix
+      img.alt = article.title;
+    })
+    .catch(err => console.error('Article load error:', err));
+</script>
+
+
+</body>
+</html>

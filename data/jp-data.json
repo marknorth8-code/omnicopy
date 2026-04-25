@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Luxury Alpine Development Site, Hakuba",
+    "summary": "Prime elevated development land with panoramic mountain views, positioned within close reach of Hakuba’s major ski resorts.",
+    "date": "25 February 2026",
+    "image": "images/locations/jp/japan-01.webp",
+
+    "price": 185000000,
+    "size": 950,
+    "location": "Japan",
+    "subLocation": "Hakuba",
+    "status": "For Sale",
+
+    "link": "articles/jp-insight-001.html"
+  },
+
+  {
+    "title": "Boutique Chalet Investment, Hakuba Village",
+    "summary": "Fully consented chalet site suitable for premium short-term rental development, benefiting from strong winter and growing summer tourism demand.",
+    "date": "25 February 2026",
+    "image": "images/locations/jp/japan-02.webp",
+
+    "price": 132000000,
+    "size": 620,
+    "location": "Japan",
+    "subLocation": "Hakuba",
+    "status": "Under Offer",
+
+    "link": "articles/jp-insight-002.html"
+  },
+
+  {
+    "title": "Central Hakuba Residential Plot",
+    "summary": "Well-located residential land parcel within walking distance of amenities and shuttle routes to multiple ski fields.",
+    "date": "25 February 2026",
+    "image": "images/locations/jp/japan-03.webp",
+
+    "price": 88000000,
+    "size": 540,
+    "location": "Japan",
+    "subLocation": "Hakuba",
+    "status": "For Sale",
+
+    "link": "articles/jp-insight-003.html"
+  },
+
+    {
+    "title": "Prime Matsumoto Residential Plot",
+    "summary": "Well-located residential land parcel within walking distance of amenities and shuttle routes to multiple ski fields.",
+    "date": "25 February 2026",
+    "image": "images/locations/jp/japan-04.webp",
+
+    "price": 8000000,
+    "size": 540,
+    "location": "Japan",
+    "subLocation": "Matsumoto",
+    "status": "For Sale",
+
+    "link": "articles/jp-insight-003.html"
+  }
+]

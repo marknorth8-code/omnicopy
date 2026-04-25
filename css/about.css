@@ -1,0 +1,105 @@
+/* =========================================================
+   ABOUT PAGE – VISUAL STYLES
+   ========================================================= */
+
+/* --- SECTION 1: HERO --- */
+.about-hero-image {
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+/* --- SECTION 2: PROFILES --- */
+.profile-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.profile-pair {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.profile-image {
+  flex: 0 0 300px;
+  max-width: 300px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-text h2 {
+  font-size: 1.5rem;
+  color: #000033;
+  margin-bottom: 15px;
+}
+
+/* --- SECTION 3: WORK CAROUSEL --- */
+.about-work-media {
+  height: 420px;
+  position: relative;
+}
+
+.about-work-media .carousel-slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about-work-media .location-label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE - ABOUT PAGE MOBILE
+   ========================================================= */
+
+@media (max-width: 992px) {
+  /* Fix disappearing Hero & Carousel images on mobile */
+  .about-hero-image,
+  .about-work-media,
+  .about-work-media .carousel-slide img {
+    height: 320px;
+  }
+
+  /* Force Work Carousel to be edge-to-edge */
+  .about-work-media {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
+  }
+
+  .about-work-media .carousel-slide img {
+    border-radius: 0;
+  }
+
+  /* Profile stacking */
+  .profile-pair {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-image {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+}

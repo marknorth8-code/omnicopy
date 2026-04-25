@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Article | Barkertons Property</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 120px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+h1 {
+  font-family: 'Inknut Antiqua', serif;
+  margin-bottom: 10px;
+  line-height: 1.1;   /* reduced line spacing for multi-line titles */
+}
+
+    .article-meta {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .article-image {
+      margin: 40px 0 10px;
+    }
+
+    .article-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .article-caption {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+#article-summary {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-weight: 900;       /* extra bold */
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1 id="article-title"></h1>
+  <div class="article-meta" id="article-date"></div>
+
+  <!-- IMAGE -->
+  <div class="article-image">
+    <img id="article-image" alt="">
+  </div>
+  <div class="article-caption" id="article-caption"></div>
+
+  <!-- SUMMARY FROM JSON -->
+  <p id="article-summary"></p>
+
+  <!-- ARTICLE BODY (STATIC CONTENT) -->
+  <p>When people talk about diversification, it’s usually in the context of stocks and shares. We all accept that you wouldn’t put your entire portfolio into a single company or even a single sector. Yet I still read about people owning tens of houses in the same town — sometimes not even diversifying across regions, let alone countries. For me, that concentration risk in property is often overlooked.</p>
+
+<p>I’ve seen first-hand how localised risk can play out. I once owned a property in Loughborough. When AstraZeneca left the town and took a large number of skilled jobs with it, property values slumped and didn’t properly recover for around 20 years. Imagine having your life savings tied up in that one place and watching it stagnate for decades through no fault of your own.</p>
+
+<p>Arguably, the same logic applies at a country level. Tax policy, regulation, and even currency movements affect the entire nation at once. If all your assets sit within one system, you’re fully exposed to changes you can’t control. In the past, overseas investment was arguably more difficult, but I don’t see that being the case now. Access, information, and professional support are far better than they once were.</p>
+
+<p>Of course, you need to do proper due diligence. I did in Loughborough — I knew the town well. We’re often told to “invest in what you know,” right? Well, that didn’t help in Loughborough. I hear you say, “Loughborough, little market town, “you should have invested in London mate’” — well maybe, but what about budgets? And it’s not like Loughborough didn’t have a good story. The University is a huge percentage of the population and it’s not like the Uni is going to leave, is it?</p>
+
+<p>So why not look overseas? Definitely you need people you can trust who will give you honest advice, and it’s definitely not for everyone. But for me, I’m comfortable knowing I don’t have all my eggs in one basket.</p>
+    
+  
+  <!-- LOAD ARTICLE DATA -->
+ <script>
+  const slug = window.location.pathname
+    .split('/')
+    .pop()
+    .replace('.html', '');
+
+  fetch('../JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
+
+   const article = data.find(item =>
+  item.link.includes(slug)
+);
+
+      if (!article) {
+        console.error('Article not found:', slug);
+        return;
+      }
+
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-summary').textContent = article.summary;
+      document.getElementById('article-caption').textContent = article.caption || '';
+
+      const img = document.getElementById('article-image');
+      img.src = '../' + article.image;   // 👈 key fix
+      img.alt = article.title;
+    })
+    .catch(err => console.error('Article load error:', err));
+</script>
+
+
+</body>
+</html>

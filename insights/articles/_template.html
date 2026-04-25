@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Article | Barkertons Property</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500&family=Inknut+Antiqua:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      padding: 120px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+h1 {
+  font-family: 'Inknut Antiqua', serif;
+  margin-bottom: 10px;
+  line-height: 1.1;   /* reduced line spacing for multi-line titles */
+}
+
+    .article-meta {
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .article-image {
+      margin: 40px 0 10px;
+    }
+
+    .article-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .article-caption {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+#article-summary {
+  font-family: 'Bricolage Grotesque', Arial, sans-serif;
+  font-weight: 900;       /* extra bold */
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TITLE -->
+  <h1 id="article-title"></h1>
+  <div class="article-meta" id="article-date"></div>
+
+  <!-- IMAGE -->
+  <div class="article-image">
+    <img id="article-image" alt="">
+  </div>
+  <div class="article-caption" id="article-caption"></div>
+
+  <!-- SUMMARY FROM JSON -->
+  <p id="article-summary"></p>
+
+  <!-- ARTICLE BODY (STATIC CONTENT) -->
+  <p>
+  
+</p>
+    
+  
+  
+
+
+  <!-- LOAD ARTICLE DATA -->
+ <script>
+  const slug = window.location.pathname
+    .split('/')
+    .pop()
+    .replace('.html', '');
+
+  fetch('../JS/insights-data.json')
+    .then(res => res.json())
+    .then(data => {
+
+   const article = data.find(item =>
+  item.link.includes(slug)
+);
+
+      if (!article) {
+        console.error('Article not found:', slug);
+        return;
+      }
+
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-date').textContent = article.date;
+      document.getElementById('article-summary').textContent = article.summary;
+      document.getElementById('article-caption').textContent = article.caption || '';
+
+      const img = document.getElementById('article-image');
+      img.src = '../' + article.image;   // 👈 key fix
+      img.alt = article.title;
+    })
+    .catch(err => console.error('Article load error:', err));
+</script>
+
+
+</body>
+</html>

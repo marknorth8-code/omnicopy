@@ -1,0 +1,121 @@
+/* =========================================================
+   INSIGHTS PAGE – LAYOUT
+   ========================================================= */
+
+/* Spacing is now handled by .page-section in global.css */
+.insights-grid-section {
+  /* Inherits 60px padding from global.css .page-section */
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  /* max-width and centering inherited if using .container in HTML */
+}
+
+/* =========================================================
+   INSIGHT CARD
+   ========================================================= */
+
+.insight-card-link {
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  border-radius: 8px; /* Standardized to match other section images */
+  text-decoration: none;
+  color: #000033; /* Updated to brand Navy */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  height: 500px;
+  overflow: hidden;
+}
+
+.insight-card-link:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  text-decoration: none;
+}
+
+.insight-card-link img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.insight-card-link .insight-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.insight-card-link h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.2;
+  /* Text clamping */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.insight-card-link p {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #444;
+  margin-bottom: 10px;
+  /* Text clamping */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.insight-card-link .insight-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000033;
+  margin-bottom: 14px;
+}
+
+.insight-card-link .read-more {
+  margin-top: auto;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000033;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.insight-card-link .read-more:hover {
+  background-color: #E10600; /* Hover color matches story-btn */
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .insight-card-link {
+    height: auto;
+  }
+}
